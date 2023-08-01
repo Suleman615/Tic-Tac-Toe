@@ -22,7 +22,7 @@ const Board = () => {
     const [count2, setCount2] = useState(0)
     const [player1, setPlayer1] = useState('Player 1')
     const [player2, setPlayer2] = useState('Player 2')
-    
+
 
     const checkWinner = () => {
         const winner = [
@@ -50,9 +50,9 @@ const Board = () => {
 
     useEffect(() => {
         p1 = prompt('Enter Name of Player 1')
-        if (p1 != null) setPlayer1(p1.toUpperCase())
+        if (p1 == "" || p1 == null) { setPlayer1("Player 1") } else { setPlayer1(p1.toUpperCase()) }
         p2 = prompt('Enter Name of Player 2')
-        if (p2 != null) setPlayer2(p2.toUpperCase())
+        if (p2 == "" || p2 == null) { setPlayer2("Player 2") } else { setPlayer2(p2.toUpperCase()) }
 
     }, []);
 
@@ -96,21 +96,21 @@ const Board = () => {
                 <Points player={player2} points={count2} />
             </div>
             <div>
-            <div className="row">
-                <Box onClick={() => ChangeState(0)} value={state[0]} />
-                <Box onClick={() => ChangeState(1)} value={state[1]} />
-                <Box onClick={() => ChangeState(2)} value={state[2]} />
-            </div>
-            <div className="row">
-                <Box onClick={() => ChangeState(3)} value={state[3]} />
-                <Box onClick={() => ChangeState(4)} value={state[4]} />
-                <Box onClick={() => ChangeState(5)} value={state[5]} />
-            </div>
-            <div className="row">
-                <Box onClick={() => ChangeState(6)} value={state[6]} />
-                <Box onClick={() => ChangeState(7)} value={state[7]} />
-                <Box onClick={() => ChangeState(8)} value={state[8]} />
-            </div>
+                <div className="row">
+                    <Box onClick={() => ChangeState(0)} value={state[0]} />
+                    <Box onClick={() => ChangeState(1)} value={state[1]} />
+                    <Box onClick={() => ChangeState(2)} value={state[2]} />
+                </div>
+                <div className="row">
+                    <Box onClick={() => ChangeState(3)} value={state[3]} />
+                    <Box onClick={() => ChangeState(4)} value={state[4]} />
+                    <Box onClick={() => ChangeState(5)} value={state[5]} />
+                </div>
+                <div className="row">
+                    <Box onClick={() => ChangeState(6)} value={state[6]} />
+                    <Box onClick={() => ChangeState(7)} value={state[7]} />
+                    <Box onClick={() => ChangeState(8)} value={state[8]} />
+                </div>
             </div>
 
             <Button onClick={() => reload()} />
